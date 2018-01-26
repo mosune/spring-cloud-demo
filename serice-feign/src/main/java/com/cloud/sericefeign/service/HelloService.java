@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Description: hello service
  * History:
  **/
-@FeignClient(value = "service-client") // 调用名称为service-client的服务
+@FeignClient(value = "service-client", fallback = SchedualServiceHiHystric.class) // 调用名称为service-client的服务，并设置熔断器
 public interface HelloService {
 
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
